@@ -10,7 +10,7 @@ node {
     stage('Update GIT') {
             script {
                 catchError{
-                    withCredentials([gitUsernamePassword(credentialsId: 'dockerhub', gitToolName: 'Default')]) {
+                    withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                         sh "git config user.email huygau94@gmail.com"
                         sh "git config user.name lehuy94"
